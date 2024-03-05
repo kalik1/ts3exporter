@@ -3,7 +3,7 @@ name: Build and Publish Docker Image
 on:
   push:
     branches:
-      - main  # o il branch che preferisci
+      - master
 
 jobs:
   build-and-publish:
@@ -31,7 +31,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ghcr.io/${{ github.repository_owner }}/your-image-name:latest
+        tags: ghcr.io/${{ github.repository_owner }}/ts3exporter:latest
         platforms: ${{ join(matrix.platform, ',') }}
 
     - name: Image digest
